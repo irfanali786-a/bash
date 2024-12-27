@@ -23,11 +23,20 @@
 
 #!/bin/bash
 
-for i in {1..5}
-do
-  for j in $( seq 1 $i)
-  do
-    echo -n "$j "
+# Prompt the user to enter a number
+echo "Enter the number of rows for the pattern:"
+read num
+
+# Initialize a counter variable
+counter=1
+
+# Outer loop for rows
+for ((i = 1; i <= num; i++)); do
+  # Inner loop for printing numbers in each row
+  for ((j = 1; j <= i; j++)); do
+    echo -n "$counter "
+    counter=$((counter + 1))
   done
-  echo ""
+  # Print a new line after each row
+  echo
 done
